@@ -1,5 +1,5 @@
 // =======================
-// Game State
+// State
 // =======================
 let gameState = {
     credits: 100,
