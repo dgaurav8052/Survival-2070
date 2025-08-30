@@ -24,10 +24,10 @@ The dashboard provides real-time feedback with progress bars, alerts, and status
 
 ## Setup Instructions
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/dgaurav8052/Survival-2070.git
-cd Survival-2070
+   **Clone the repository**
+
+    git clone https://github.com/dgaurav8052/Survival-2070.git
+    cd Survival-2070
 
     Open the project
 
@@ -35,7 +35,7 @@ cd Survival-2070
 
     No server setup needed; it runs entirely on the client-side
 
-Usage Instructions
+   **Usage Instructions**
 
     Click Buy Supplies to increase Food (+15) and Water (+20) at a cost of 20 Credits
 
@@ -45,14 +45,15 @@ Usage Instructions
 
     Credits increase automatically over time (+5 every 10 seconds)
 
-Key Formulas & Mechanics
-Metric	Formula / Value
-Energy	(Food + Water) × 5
-Days Left	Energy ÷ 10
-Daily Consumption	-2 Food, -3 Water (per 3 seconds)
-Buy Supplies	+15 Food, +20 Water, cost 20 Credits
-Maximum Values	Food = 100, Water = 100, Energy = 500, Credits = 200
-Alerts & Status Indicators
+   **Key Formulas & Mechanics**
+
+    Metric	Formula / Value
+    Energy	(Food + Water) × 5
+    Days Left	Energy ÷ 10
+    Daily Consumption	-2 Food, -3 Water (per 3 seconds)
+    Buy Supplies	+15 Food, +20 Water, cost 20 Credits
+    Maximum Values	Food = 100, Water = 100, Energy = 500, Credits = 200
+    Alerts & Status Indicators
 
     Alerts appear when:
         Food ≤ 10 → “Food critically low!”
@@ -65,18 +66,31 @@ Alerts & Status Indicators
         Resource Level (Food + Water): STABLE / LOW / CRITICAL
         Mission Time (Days Left): EXTENDED / LIMITED / EMERGENCY
 
-Colors change dynamically:
-    Green → Safe
-    Yellow → Warning
-    Red → Critical
+    Colors change dynamically:
+        Green → Safe
+        Yellow → Warning
+        Red → Critical
 
-License
+---
+
+## License
 
 Open for educational purposes. You can fork and experiment freely.
-Author
 
+---
+
+## Author
 Gaurav Dwivedi
-
 GitHub: https://github.com/dgaurav8052
-
 Email: dgaurav8052@gmail.com
+
+---
+
+## Collaborators
+Aditya Yadav
+Github: https://github.com/adityaxlu
+Email: iadityax1@gmail.com
+
+Mohit Kumar
+Github: https://github.com/mohitkumar76678
+Email: mkv76678@gmail.com
