@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survival 2070</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white font-mono">
+    <!-- background grid -->
+    <div class="fixed inset-0 opacity-10">
+        <div class="absolute inset-0 grid-bg"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-10 text-center py-8 px-4">
+        <h1 class="text-5xl md:text-7xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-4">
+            SURVIVAL 2070
+        </h1>
+        <div class="w-32 h-1 bg-gradient-to-r from-cyan-500 to-purple-500 mx-auto rounded-full"></div>
+    </header>
+
+    <!-- Alerts Container -->
+    <div id="alerts-container" class="relative z-10 max-w-6xl mx-auto px-4 mb-6">
+        <!-- Alerts will be inserted here -->
+    </div>
+
+    <!-- Dashboard Grid -->
+    <main class="relative z-10 max-w-6xl mx-auto px-4 pb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Days Left -->
+            <div class="bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-cyan-300">Days Left</h3>
+                    <svg class="h-6 w-6 text-red-400" id="days-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                    </svg>
+                </div>
+                <div class="text-3xl font-bold text-white mb-2" id="days-left">50</div>
+                <div class="text-sm text-gray-400">Estimated survival time</div>
+            </div>
+
+            <!-- Credits -->
+            <div class="bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-cyan-300">Credits</h3>
+                    <svg class="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                    </svg>
+                </div>
+                <div class="text-3xl font-bold text-white mb-2" id="credits">100</div>
+                <div class="text-sm text-gray-400">Available currency</div>
+            </div>
+
+            <!-- Energy -->
+            <div class="bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-cyan-300">Energy</h3>
+                    <svg class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                </div>
+                <div class="text-3xl font-bold text-white mb-2" id="energy">500</div>
+                <div class="w-full bg-gray-800 rounded-full h-2 mt-2 overflow-hidden">
+                    <div id="energy-bar" class="h-full bg-gradient-to-r from-green-500 to-emerald-600 transition-all duration-1000 ease-out" style="width: 100%"></div>
+                </div>
+                <div class="text-sm text-gray-400 mt-2">
+                    <span id="energy-text">500</span>/500 units
+                </div>
+            </div>
+
+            <!-- Supplies -->
+            <div class="bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-6 hover:border-cyan-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-cyan-300">Supplies</h3>
+                    <svg class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4" />
+                    </svg>
+                </div>
+                <div class="text-3xl font-bold text-white mb-2" id="total-supplies">100</div>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-orange-300 flex items-center">
+                            Food: <span id="food">50</span>
+                        </span>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                        <div id="food-bar" class="h-full bg-gradient-to-r from-green-500 to-emerald-600 transition-all duration-1000 ease-out" style="width: 50%"></div>
+                    </div>
+                    
+                    <div class="flex justify-between text-sm">
+                        <span class="text-blue-300 flex items-center">
+                            Water: <span id="water">50</span>
+                        </span>
+                    </div>
+                    <div class="w-full bg-gray-800 rounded-full h-2 overflow-hidden">
+                        <div id="water-bar" class="h-full bg-gradient-to-r from-green-500 to-emerald-600 transition-all duration-1000 ease-out" style="width: 50%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Panel -->
+        <div class="bg-gray-900/80 backdrop-blur-sm border border-cyan-500/30 rounded-lg p-6">
+            <h2 class="text-2xl font-bold text-cyan-300 mb-6 text-center">Resource Management</h2>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                <div class="text-center">
+                    <div class="text-lg text-gray-300 mb-2">Supply Package</div>
+                    <div class="text-sm text-gray-400 mb-4">
+                        +15 Food, +20 Water
+                    </div>
+                    <button
+                        id="buy-button"
+                        class="flex items-center px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 hover:shadow-lg hover:shadow-cyan-500/30 hover:scale-105"
+                    >
+                        Buy Supplies (20 Credits)
+                    </button>
+                </div>
+
+                <div class="text-center text-sm text-gray-400 max-w-md">
+                    <div class="mb-2">
+                        <strong class="text-cyan-300">Survival Formula:</strong>
+                    </div>
+                    <div>Energy = (Food + Water) × 5</div>
+                    <div>Days Left = Energy ÷ 10</div>
+                    <div class="mt-2 text-red-300">
+                        Daily consumption: -2 Food, -3 Water
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Indicators -->
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-gray-900/60 border border-gray-700 rounded-lg p-4 text-center">
+                <div class="text-cyan-300 font-semibold mb-2">System Status</div>
+                <div id="system-status" class="text-lg font-bold text-green-400">OPTIMAL</div>
+            </div>
+
+            <div class="bg-gray-900/60 border border-gray-700 rounded-lg p-4 text-center">
+                <div class="text-cyan-300 font-semibold mb-2">Resource Level</div>
+                <div id="resource-status" class="text-lg font-bold text-green-400">STABLE</div>
+            </div>
+
+            <div class="bg-gray-900/60 border border-gray-700 rounded-lg p-4 text-center">
+                <div class="text-cyan-300 font-semibold mb-2">Mission Time</div>
+                <div id="mission-status" class="text-lg font-bold text-green-400">EXTENDED</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
